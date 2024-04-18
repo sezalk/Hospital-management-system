@@ -1,10 +1,10 @@
 import express from "express";
 import {config} from "dotenv"
 import cors from "cors";
-import { get } from "mongoose";
 import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import { dbConnection } from "./database/dbConnection.js";
+import messageRouter from "./router/messageRouter.js";
 const app=express();
 config({path:"./config/config.env"});
 // connecting FRontend
@@ -18,7 +18,7 @@ app.use(cors({
 app.use(cookieParser());
 //convert json to string 
 app.use(express.json());
-// to recognise real time things like date(mm/dd/yyyy) and name in string format
+// to recognise  real time things like date(mm/dd/yyyy) and name in string format
 app.use(express.urlencoded({extended:true}));
 //to upload files
 
@@ -27,6 +27,7 @@ app.use(fileUpload({
     tempFileDir:"/tmp/",
 }))
 
+app.use("/api/v1/message",messageRouter);
 dbConnection();
 
 export default app;
