@@ -8,7 +8,7 @@ import { Context } from "../main";
 const Navbar = () => {
   const [show, setShow] = useState(false);
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
-
+  const navigateTo = useNavigate(); 
   const handleLogout = async () => {
     await axios
       .get("http://localhost:3000/api/v1/user/patient/logout", {
@@ -23,7 +23,7 @@ const Navbar = () => {
       });
   };
 
-  const navigateTo = useNavigate();
+  
 
   const goToLogin = () => {
     navigateTo("/login");
@@ -52,7 +52,7 @@ const Navbar = () => {
               LOGOUT
             </button>
           ) : (
-            <button className="loginBtn btn" onClick={goToLogin}>
+            <button className="logoutBtn btn" onClick={goToLogin}>
               LOGIN
             </button>
           )}
