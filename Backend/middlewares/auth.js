@@ -6,7 +6,8 @@ import { User } from "../models/userSchema.js";
 // authentication and authorisation
 
 export const isAdminAuthenticated = catchAsyncErrors(async(req,res,next)=>{
-    const token = request.cookies.adminToken;
+    const token = req.cookies.adminToken;
+    console.log("token : ",token)
     if(!token){
         return next(new ErrorHandler("Admin not Authenticated!",400));
     }
@@ -18,8 +19,10 @@ export const isAdminAuthenticated = catchAsyncErrors(async(req,res,next)=>{
     next();
 });
 
+
+
 export const isPatientAuthenticated = catchAsyncErrors(async(req,res,next)=>{
-    const token = request.cookies.patientToken;
+    const token = req.cookies.patientToken;
     if(!token){
         return next(new ErrorHandler("Patient not Authenticated!",400));
     }
