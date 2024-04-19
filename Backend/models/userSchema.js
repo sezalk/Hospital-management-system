@@ -75,7 +75,7 @@ userSchema.methods.comparePassword = async function(enterPassword){
     return await bcrypt.compare(enterPassword,this.password)
 };
 
-//token generation
+//token generation 
 
 userSchema.methods.generateJsonWebToken = function(){
     return jwt.sign({id: this._id},process.env.JWT_SECRET_KEY,{
