@@ -57,8 +57,15 @@ const userSchema= new mongoose.Schema({
         type:String,
     },
     docAvatar:{
-        public_id:String,
-        url:String,
+        public_id: {
+            type: String, 
+            required: true,
+          },
+          url: {
+            type: String, 
+            required: true,
+          },
+      
     }
     
 });
