@@ -99,7 +99,7 @@ export const logoutAdmin = catchAsyncErrors(async(req,res,next)=>{
     })
     .json({
         success:true,
-        message:"User logged Out Successfully!", 
+        message:"Admin logged Out Successfully!", 
     });
 })
 
@@ -110,6 +110,6 @@ export const logoutPatient = catchAsyncErrors(async(req,res,next)=>{
     })
     .json({
         success:true,
-        message:"User logged Out Successfully!", 
+        message:"Patient logged Out Successfully!", 
     });
 })
