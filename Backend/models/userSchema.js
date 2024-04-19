@@ -22,8 +22,8 @@ const userSchema= new mongoose.Schema({
     phone:{
         type:String,
         required:true,
-        minLength:[11,"Phone number must contain Exact 11 digits!"],
-        maxLength:[11,"Phone number must contain Exact 11 digits!"]
+        minLength:[10,"Phone number must contain Exact 11 digits!"],
+        maxLength:[10,"Phone number must contain Exact 11 digits!"]
     },
     nic:{
         type:String,
@@ -44,7 +44,7 @@ const userSchema= new mongoose.Schema({
     },
     password:{
         type:String,
-        minLength:[11,"Password must contain atleast 8 characters!"],
+        minLength:[8,"Password must contain atleast 8 characters!"],
         required:true,
         select:false // to hide password when accesssing users details 
     },
@@ -83,4 +83,4 @@ userSchema.methods.generateJsonWebToken = function(){
     })
 }
 
-export const User = mongoose.model("Message",userSchema);
+export const User = mongoose.model("User",userSchema);
