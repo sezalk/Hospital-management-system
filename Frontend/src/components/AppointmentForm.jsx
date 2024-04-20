@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const AppointmentForm = () => {
@@ -29,10 +30,10 @@ const AppointmentForm = () => {
     "Dermatology",
     "ENT",
   ];
-
+  const navigateTo= useNavigate();
   const [doctors, setDoctors] = useState([]);
   useEffect(() => {
-    const fetchDoctors = async () => {
+     const fetchDoctors = async () => {
       const { data } = await axios.get(
         "http://localhost:3000/api/v1/user/doctors",
         { withCredentials: true }
@@ -47,7 +48,7 @@ const AppointmentForm = () => {
     try {
       const hasVisitedBool = Boolean(hasVisited);
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/appointment/post",
+        "http://localhost:3000/api/v1/appointment/post",
         {
           firstName,
           lastName,
@@ -69,6 +70,7 @@ const AppointmentForm = () => {
         }
       );
       toast.success(data.message);
+      navigateTo("/");
       setFirstName(""),
         setLastName(""),
         setEmail(""),
