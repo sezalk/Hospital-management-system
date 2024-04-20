@@ -30,7 +30,7 @@ const AppointmentForm = () => {
     "Dermatology",
     "ENT",
   ];
-  const navigateTo= useNavigate
+  const navigateTo= useNavigate()
   const [doctors, setDoctors] = useState([]);
   useEffect(() => {
      const fetchDoctors = async () => {
