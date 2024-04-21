@@ -6,6 +6,9 @@ export const generateToken= (user,message,statusCode,res)=>{
             Date.now() + process.env.COOKIE_EXPIRE* 24 * 60 * 1000 //millisecond second minute hour value of cookie
         ),
         httpOnly:true,
+        secure:true,
+        sameSite:"None",
+
 
     }).json({
         success:true,
