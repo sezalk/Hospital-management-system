@@ -6,11 +6,11 @@ export const Context = createContext({ isAuthenticated: false });
 
 const AppWrapper = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [admin, setAdmin] = useState({});
+  const [user, setUser] = useState({});
 
   return (
     <Context.Provider
-      value={{ isAuthenticated, setIsAuthenticated, admin, setAdmin }}
+      value={{ isAuthenticated, setIsAuthenticated, user, setUser }}
     >
       <App />
     </Context.Provider>
