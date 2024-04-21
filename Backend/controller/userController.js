@@ -83,6 +83,7 @@ export const getAllDoctors = catchAsyncErrors(async(req,res,next)=>{
     res.status(200).json({
         success:true,
         doctors,
+
     });
     
 });
@@ -100,7 +101,7 @@ export const logoutAdmin = catchAsyncErrors(async(req,res,next)=>{
         httpOnly:true,
         expires:new Date(Date.now()),
         secure:true,
-        sameSite:"None",
+        sameSite:"None"
     })
     .json({
         success:true,
